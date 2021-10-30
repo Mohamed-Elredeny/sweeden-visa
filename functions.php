@@ -49,14 +49,37 @@ function add_user($con,$fname,$lname,$email,$phone,$country,$address){
     }
 
 }
-function add_question($con,$q1,$q2,$q3){
-
-    $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
-
-    if ($con->query($sql) === TRUE) {
-        echo 'Record updated successfully';
+function add_question($con,$user,$q1,$q2,$q3){
+    $sql1 = "
+    INSERT INTO user_answers
+        ( user_id	, question_num	,answer	)
+    VALUES
+       ( '$user', '1', '$q1')
+    ";
+    $sql2 = "
+    INSERT INTO user_answers
+        ( user_id	, question_num	,answer	)
+    VALUES
+       ( '$user', '2', '$q2')
+    ";
+    $sql3 = "
+    INSERT INTO user_answers
+        ( user_id	, question_num	,answer	)
+    VALUES
+       ( '$user', '3', '$q3')
+    ";
+    $con->query($sql1);
+    $con->query($sql2);
+    $con->query($sql3);
+}
+function get_user_answer($con,$user_id,$number){
+    $sql = "SELECT * FROM user_answers where user_id='$user_id' AND question_num='$number' ";
+    $q2 = mysqli_query($con, $sql);
+    $admins = mysqli_fetch_all($q2, MYSQLI_ASSOC);
+    if (count($admins) > 0) {
+       return $admins[0]['answer'];
     } else {
-        echo 'Error updating record: ' . $con->error;
+        return 'q23798y529385u72358792';
     }
 }
 if(isset($_POST['add_user'])){

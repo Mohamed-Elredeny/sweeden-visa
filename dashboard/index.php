@@ -132,7 +132,6 @@ if(isset($_SESSION['isAdmin']) &&  $_SESSION['isAdmin'] == 1){
                                 <th>Phone</th>
                                 <th>Country</th>
                                 <th>Address</th>
-                                <th>Shares Number</th>
                                 <th>Questions</th>
 
                             </tr>
@@ -164,11 +163,11 @@ if(isset($_SESSION['isAdmin']) &&  $_SESSION['isAdmin'] == 1){
                                     <?php echo $user['address'] ?>
 
                                 </th>
+
                                 <th>
-                                    <a class='btn btn-dark col-sm-12' href="" style="">view</a><br>
-                                </th>
-                                <th>
-                                    <a class='btn btn-dark col-sm-12' href=''>view</a><br>
+                                    <a class='btn btn-dark col-sm-12' data-toggle='modal'
+                                       data-target='#exampleModalCenter<?php echo $user['id'] ?>'
+                                    >view</a><br>
                                 </th>
 
                             </tr>
@@ -240,7 +239,7 @@ if(isset($_SESSION['isAdmin']) &&  $_SESSION['isAdmin'] == 1){
                 <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
             </div>
 
-            <div class="mb-2">
+            <div class="mb-2">*
                 <img src="assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="">
             </div>
             <div class="custom-control custom-switch mb-5">
@@ -290,7 +289,60 @@ if(isset($_SESSION['isAdmin']) &&  $_SESSION['isAdmin'] == 1){
 <script src="assets/js/pages/dashboard.init.js"></script>
 
 <script src="assets/js/app.js"></script>
-
+<!-- Modal -->
+<?php foreach ($users as $user){ ?>
+<div class='modal fade' id='exampleModalCenter<?php echo $user['id'] ?>' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle'
+     aria-hidden='true'>
+    <div class='modal-dialog modal-dialog-centered' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='exampleModalLongTitle'>User Answers</h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='modal-body'>
+                <h5>Question 1 How Well Do You Speak English?</h5>
+                <div class="h6 p3">
+                    <?php
+                    if(get_user_answer($con,$user['id'],1) != 'q23798y529385u72358792'){
+                        echo get_user_answer($con,$user['id'],1);
+                    }else{
+                        echo 'User did not response yet!';
+                    }
+                    ?>
+                </div>
+                <hr>
+                <h6>Question 2   Marital Status?</h6>
+                <div class='h6 p3'>
+                    <?php
+                    if(get_user_answer($con,$user['id'],2) != 'q23798y529385u72358792'){
+                        echo get_user_answer($con,$user['id'],2);
+                    }else{
+                        echo 'User did not response yet!';
+                    }
+                    ?>
+                </div>
+                <hr>
+                <h6>Question 3  What is Your Employment Status?</h6>
+                <div class='h6 p3'>
+                    <?php
+                    if(get_user_answer($con,$user['id'],3) != 'q23798y529385u72358792'){
+                        echo get_user_answer($con,$user['id'],3);
+                    }else{
+                        echo 'User did not response yet!';
+                    }
+                    ?>
+                </div>
+                <hr>
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
 </body>
 </html>
 <?php }else{

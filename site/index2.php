@@ -224,88 +224,6 @@ if(isset($_GET['id']) and $_GET['id'] !='' ){
                 </div>
             </div>
         </section>
-        <section id='contact-map4' class='section-padding' style='display: none;'>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-12'>
-                        <div class='section-title-header text-center'>
-                            <h2 class='section-title wow fadeInUp' data-wow-delay='0.2s'>Resident Card Lottery - Online
-                                Registration:
-                            </h2>
-                            <p style='font-weight: bold;'>After Checking Your Answers And Put It Into Consideration, You
-                                Have Qualified For A Chance To Win The Sweedish Resident Card. Complete The Below Steps
-                                To Obtain The 'Sweedish Resident Card Lottery' Form</p>
-                            <p>You may get the Sweedish Resident Card Lottery Form' with only one step, kindly click the
-                                'SHARE TO CONTINUE' button below to share this information with 5 friends on WhatsApp so
-                                That They Can Aslo Benefit.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class='row justify-content-center'>
-                    <div class='col-lg-8 col-md-12 col-xs-12'>
-                        <div class='container-form wow fadeInLeft' data-wow-delay='0.2s'>
-                            <div class='form-wrapper'>
-                                <!-- <form role='form' method='post' id='contactForm' name='contact-form'
-                                    data-toggle='validator'> -->
-                                <div class='row'>
-
-                                    <div class='col-md-12 form-line'>
-                                        <div class='form-submit'>
-                                            <a onclick='share1()' href='https://wa.me?text=text=%0A%0A%0A%0A*Sweeden%20Visa%20Lottery%20Application%20Form%202021/2022%20Is%20Out*%20%0A%0AThe%20Sweedish%20Visa%20Lottery%20online%20Application%20Form%202021/2022%20registration%20exercise%20which%20is%20the%20quickest%20way%20for%20all%20Foreigners%20interested%20in%20immigrating%20legally%20to%20live,%20Study%20and%20work%20in%20Sweeden.%0A%0A*The%20Resident%20Card%20Lottery%20Program%20also%20known%20as%20Visa%20Lottery%20program%20is%20a%20chance%20for%2087,000%20people%20from%20all%20over%20the%20world%20to%20become%20permanent%20and%20legal%20residents%20of%20the%20Sweeden,%20meaning%20that%20they%20can%20live.%20work%20and%20study%20in%20Sweeden.%0A%0A*Interested%20Applicants%20are%20to%20visit%20Online%20Registration%20Portal%0AThe%20Winners%20Will%20Be%20Drawn%20From%20Random%20Selection%20And%20There%20Is%20No%20Cost%20To%20Register.%0A%0A_Check%20Eligibility%20and%20Apply%20here:_%20%0A%0Ahttps://bit.ly/Sweeden-Immigration' data-action="share/whatsapp/share" target="_blank" class="btn btn-common" id="form-submit">
-                                            <i class=' fa fa-paper-plane' aria-hidden='true'></i> Share to
-                                            continue </a>
-                                            <div id='msgSubmit' class='h3 text-center hidden'></div>
-                                        </div>
-                                    </div>
-
-                                    <div class='col-md-12 form-line text-center mb-3'>
-                                        <!-- <div class='form-submit'> -->
-                                        Share it until the blue bar is full!
-                                        <!-- </div> -->
-                                    </div>
-
-                                    <div class='col-md-12 form-line text-center mb-3'>
-                                        <div class='progress'>
-                                            <div class='progress-bar bg-warning' role='progressbar' style='width: 25%;'
-                                                 aria-valuenow='25' aria-valuemin='0' aria-valuemax='100'>25%
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class='col-md-12 form-line text-center mb-3'>
-                                        <!-- <div class='form-submit'> -->
-                                        After sharing to WhatsApp Group, click the 'Resident Card Form' button to
-                                        proceed:
-                                        <!-- </div> -->
-                                    </div>
-
-                                    <div class='col-md-12 form-line text-center mb-3'>
-                                        <div class='form-submit'>
-                                            <a onclick='' class='btn btn-common' id='web1'><i
-                                                        class='fa fa-paper-plane' aria-hidden='true'></i> Green Card
-                                                Form </a>
-                                            <div id='msgSubmit' class='h3 text-center hidden'></div>
-                                        </div>
-                                    </div>
-
-                                    <div class='col-md-12 form-line text-center' style='color: red;'>
-                                        <!-- <div class='form-submit'> -->
-                                        Note: If you do not complete this step correctly, you will not Get US Green Card
-                                        Registration Form.
-                                        <!-- </div> -->
-                                    </div>
-
-                                </div>
-                                <!-- </form> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
 
 
     </form>
@@ -326,7 +244,7 @@ if(isset($_GET['id']) and $_GET['id'] !='' ){
     <script src="assets/js/form-validator.min.js"></script>
     <script src="assets/js/contact-form-script.min.js"></script>
 
-    <script>
+    <script type='text/javascript'>
         var q1= '';
         var q2= '';
         var q3= '';
@@ -346,12 +264,15 @@ if(isset($_GET['id']) and $_GET['id'] !='' ){
         function question3(name)
         {
             document.getElementById('contact-map3').style.display = 'none';
-            document.getElementById('contact-map4').style.display = 'block';
+            //document.getElementById('contact-map4').style.display = 'block';
             q3 = name;
-            <?php
-                ;
-            ?>
             console.log(q1 + ' ' +  q2 + ' ' + q3);
+            location.href='index4.php?user=<?php echo $_GET['id'] ?>&q1='+q1+'&q2='+q2+'&q3='+q3+'';
+            <?php
+            $q11 = '<script>document.write(q1);</script>';
+            $q22 = '<script>document.write(q2);</script>';
+            $q33 = '<script>document.write(q3);</script>';
+            ?>
         }
 
 
