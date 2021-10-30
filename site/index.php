@@ -1,3 +1,6 @@
+<?php
+require_once('../functions.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,8 +95,7 @@
                 <div class="col-lg-8 col-md-12 col-xs-12">
                     <div class="container-form wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="form-wrapper">
-                            <form role="form" action="#" method="post" id="contactForm" name="contact-form"
-                                data-toggle="validator">
+                            <form role="form" action="index.php" method="post" name="contact-form" data-toggle="validator">
                                 <div class="row">
                                     <div class="col-md-6 form-line">
                                         <div class="form-group">
@@ -128,7 +130,7 @@
 
                                     <div class="col-md-6 form-line">
                                         <div class="form-group">
-                                                    <select id="country" name="country" class="form-control">
+                                            <select id="country" name="country" class="form-control">
                                                         <option value="Afganistan">Afghanistan</option>
                                                         <option value="Albania">Albania</option>
                                                         <option value="Algeria">Algeria</option>
@@ -390,8 +392,8 @@
 
                                     <div class="col-md-12 form-line">
                                         <div class="form-submit">
-                                            <button type="submit" class="btn btn-common" id="form-submit" name="add_user"><i
-                                                    class="fa fa-paper-plane" aria-hidden="true"></i> Applay Now</button>
+                                            <button type="submit" class="btn btn-common" name="add_user"><i
+                                                    class="fa fa-paper-plane" aria-hidden="true"></i> Apply Now</button>
                                             <div id="msgSubmit" class="h3 text-center hidden"></div>
                                         </div>
                                     </div>
@@ -405,7 +407,6 @@
         </div>
     </section>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery-min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>

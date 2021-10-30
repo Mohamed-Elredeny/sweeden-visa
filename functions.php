@@ -42,12 +42,22 @@ function add_user($con,$fname,$lname,$email,$phone,$country,$address){
        ( '$fname', '$lname', '$email',	'$phone',	'$country',	'$address')
     ";
     if ($con->query($sql) === TRUE) {
-        echo 'New record created successfully';
-        header('location:index2.php');
+       // $_SESSION['user'] ;
+        header('location:index2.php?id='.$con->insert_id);
     } else {
         echo 'Error: ' . $sql . '<br>' . $con->error;
     }
 
+}
+function add_question($con,$q1,$q2,$q3){
+
+    $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+
+    if ($con->query($sql) === TRUE) {
+        echo 'Record updated successfully';
+    } else {
+        echo 'Error updating record: ' . $con->error;
+    }
 }
 if(isset($_POST['add_user'])){
     $fname = $_POST['fname'];
@@ -57,5 +67,9 @@ if(isset($_POST['add_user'])){
     $country = $_POST['country'];
     $address = $_POST['address'];
     add_user($con,$fname,$lname,$email,$phone,$country,$address);
+}
+
+if(isset($_POST['addQuestionnaire'])){
+
 }
 #endregion
